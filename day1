@@ -11,10 +11,14 @@ public class Robot extends InterativeRobot {
  private Spark spark3;
  private Spark spark4;
  private Spark spark5;
+ DoubleSolenoid solenoid1 = new DoubleSolenoid(1, 2);
+ DoubleSolenoid solenoid2 = new DoubleSolenoid(3, 4);
+ Solenoid climb = new Solenoid(5);
  
  DriverStation matchInfo = DriverStation.getInstance();
  
  Joystick joy1 = new Joystick(0);
+ Joystick joy2 = new Joystick(1);
 }
 
 public void autonomousPeriodic() {
@@ -37,20 +41,39 @@ public void teleopPeriodic() {
   spark1.set(z);
   spark2.set(-z);
   
-  if(joy1.getRawButton(1) {
+  if(joy1.getRawButton(1)) {
   spark3.set(0.5);
   }
   
-  if(joy1.getRawButton(2) {
+  if(joy1.getRawButton(2)) {
   spark3.set(-0.5);
   }
   
-  if(joy1.getRawButton(3) {
+  if(joy1.getRawButton(3)) {
   spark4.set(0.5);
   spark5.set(-0.5);
   }
   
-  if(joy1.getRawButton(4) {
+  if(joy1.getRawButton(4)) {
   spark4.set(-0.5);
   spark5.set(0.5);
+  }
+  
+  if(joy2.getRawButton(1)) {
+  solenoid1.set(DoubleSolenoid.Value.kForward);
+  else {
+  solenoid1.set(DoubleSolenoid.Value.kReverse);
+    }
+  }
+  if(joy2.getRawButton(2)) {
+  solenoid2.set(DoubleSolenoid.Value.kForward);
+  else {
+  solenoid2.set(DoubleSolenoid.Value.kReverse);
+   }
+  }
+  if(joy1.getRawButton(11)) {
+  climb.set(true);
+  else {
+  climb.set(false);
+   }
   }
