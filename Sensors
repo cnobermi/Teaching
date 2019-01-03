@@ -1,0 +1,32 @@
+package org.usfirst.frc.team7109.robot;
+
+import.edu.wpi.first.wpilibj.Spark;
+import.edu.wpi.first.wpilibj.DriverStation;
+import.edu.wpi.first.wpilibj.Joystick;
+
+
+public class Robot extends InterativeRobot {
+
+ private Spark spark1;
+ private Spark spark2;
+ private Spark spark3;
+ private Spark spark4;
+
+ 
+ DriverStation matchInfo = DriverStation.getInstance();
+ 
+ Joystick joy1 = new Joystick(0);
+
+}
+
+public void autonomousPeriodic() {
+
+}
+
+public void teleopInit() {
+
+}
+
+public void teleopPeriodic() {
+
+}
