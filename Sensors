@@ -16,14 +16,14 @@ public class Robot extends InterativeRobot {
  private ArcadeDrive drive;
  private Gyro gyro;
  
- double Kp = 0.03;
+ double Kp = 0.03; 
  
  public GyroSample() {
-   gyro = new Gyro(1);
-   drive = new ArcadeDrive(0, 1);
-   drive.setExpiration(0.1);
+  gyro = new Gyro(1);
+  drive = new ArcadeDrive(0, 1);
+  drive.setExpiration(0.1);
  }
- 
+
  DriverStation matchInfo = DriverStation.getInstance();
  
  Joystick joy1 = new Joystick(0);
@@ -31,13 +31,14 @@ public class Robot extends InterativeRobot {
 }
 
 public void autonomousPeriodic() {
-  gryo.reset();
-  while (isAutonmousPeriodic()) {
-    double angle = gyro.getAngle();
-    drive.drive(-1.0, -angle*Kp); //drives towards 0
-    timer.delay(0.004);
-  }
-  drive.drive(0.0, 0.0) 
+ gyro.rest();
+ while (isAutonomousPeriodic()) {
+  double angle = gyro.GetAngle();
+  drive.drive(-1.0, -angle*Kp); //drives towards 0
+  timer.delay(0.004);
+ }
+ drive.drive(0.0, 0.0)
+ 
 }
 
 public void teleopInit() {
